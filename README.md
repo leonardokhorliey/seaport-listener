@@ -12,3 +12,22 @@ A basic implementation for listening to Sales Events on the OpenSea SeaPort Smar
 3. Create `.env` file with necessary environment variables.
 
 4. Run the server using `node src/index.js`
+
+
+## Table Creation SQL
+--------------
+```
+CREATE TABLE seaport_sales(  
+    id int NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    order_hash VARCHAR(255) NOT NULL,
+    offerer VARCHAR(255) NOT NULL,
+    recipient VARCHAR(255) NOT NULL,
+    token_id INT NOT NULL,
+    token_address VARCHAR NOT NULL,
+    quantity INT,
+    amount DECIMAL(10, 4),
+    create_time DATE DEFAULT NOW(),
+    update_time DATE DEFAULT NOW()
+);
+```
+
